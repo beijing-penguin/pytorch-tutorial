@@ -20,7 +20,7 @@ train_dataset = torchvision.datasets.MNIST(root='../../data',
                                            train=True, 
                                            transform=transforms.ToTensor(),  
                                            download=True)
-
+print(train_dataset)
 test_dataset = torchvision.datasets.MNIST(root='../../data', 
                                           train=False, 
                                           transform=transforms.ToTensor())
@@ -29,7 +29,7 @@ test_dataset = torchvision.datasets.MNIST(root='../../data',
 train_loader = torch.utils.data.DataLoader(dataset=train_dataset, 
                                            batch_size=batch_size, 
                                            shuffle=True)
-
+print(train_loader)
 test_loader = torch.utils.data.DataLoader(dataset=test_dataset, 
                                           batch_size=batch_size, 
                                           shuffle=False)
@@ -91,4 +91,5 @@ with torch.no_grad():
     print('Accuracy of the network on the 10000 test images: {} %'.format(100 * correct / total))
 
 # Save the model checkpoint
+print(model.state_dict())
 torch.save(model.state_dict(), 'model.ckpt')
